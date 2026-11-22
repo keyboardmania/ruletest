@@ -1,0 +1,40 @@
+---
+description: Java/Spring DTO, Entity, DB 네이밍, 서비스 간 통신
+globs: "**/*.java,**/application*.yml"
+alwaysApply: false
+---
+
+# 백엔드 MSA
+
+## DTO
+
+- 클래스 이름에 `Dto` 접미사를 붙인다. 약어를 쓰지 않는다. `request`를 `req`로 줄이지 않는다.
+- 클래스명은 도메인명과 사용 목적을 합쳐 짓는다.
+- 요청 DTO와 응답 DTO를 구분한다.
+- 생성(create), 수정(update), 조회 등 전달 목적별로 DTO를 나눈다.
+- `request`, `response` 패키지로 나눠 관리한다.
+- 생성, 수정, 조회 등 목적별 DTO는 `request` 패키지에 둔다.
+
+## Entity
+
+- 단수형으로 작성한다.
+- `Entity` 접미사를 붙이지 않는다. `PostEntity` 대신 `Post`.
+- 테이블명은 snake_case로 적는다. 문서에 적힌 예시는 `Member`, `Product`다. 예시와 snake_case가 다르므로, 테이블명을 임의로 고르지 말고 사용자에게 확인한다.
+- 필드명은 camelCase로 적는다. 예: `memberId`, `createdAt`
+- PK 필드명은 엔티티명 + `Id`다. 예: `productId`, `memberId`
+
+## DB 테이블·컬럼
+
+- 테이블명과 컬럼명은 임의로 짓지 않는다. 자동 변환 결과에 따른다.
+
+## 서비스 간 통신
+
+- 서비스 간 통신은 각 서비스가 제공하는 API로 한다.
+- 다른 서비스의 DB에 직접 접근하지 않는다.
+- 사전에 정의된 API 명세를 기준으로 구현한다.
+- 서비스의 역할과 책임에 맞게 호출한다.
+- 요청과 응답은 DTO로 전달한다.
+- 다른 서비스의 Entity를 직접 참조하거나 공유하지 않는다.
+- API 호출의 연결 시간과 응답 시간 제한은 1분으로 한다.
+- 외부 서비스 호출이 실패하면 예외를 처리하고 로그를 남긴다.
+- 서비스 간 API가 바뀌면 연관 서비스에 미리 공유한다.
