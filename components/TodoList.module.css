@@ -1,0 +1,106 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 0.875rem;
+    border: 1px solid #cbd2d9;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    color: inherit;
+    font: inherit;
+}
+
+.addButton,
+.deleteButton {
+    border: 0;
+    border-radius: 0.5rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+.addButton {
+    padding: 0.75rem 1rem;
+    background: #1f6feb;
+    color: #ffffff;
+}
+
+.addButton:disabled {
+    background: #9aa5b1;
+    cursor: not-allowed;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.empty,
+.openItem,
+.completedItem {
+    padding: 0.875rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.empty {
+    color: #52606d;
+    background: #ffffff;
+}
+
+.openItem,
+.completedItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.openItem {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+}
+
+.completedItem {
+    background: #e4e7eb;
+    border: 1px solid #cbd2d9;
+}
+
+.completedItem span {
+    color: #616e7c;
+    text-decoration: line-through;
+}
+
+.todoLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.deleteButton {
+    padding: 0.5rem 0.75rem;
+    background: #ffffff;
+    color: #9b1c1c;
+}
